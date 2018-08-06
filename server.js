@@ -12,10 +12,15 @@ const app = express();
 app.use(bodyParser.json())
 app.use(passport.initialize());
 
-var corsOptions = {
-    origin: 'http://localhost:8080',
-    optionsSuccessStatus: 200 
-}
+// !!! DEVELOPMENT ONLY (start) !!! //
+
+// var corsOptions = {
+//     origin: 'http://localhost:8080',
+//     optionsSuccessStatus: 200 
+// }
+
+// !!! DEVELOPMENT ONLY (end) !!! //
+
   
 app.use(cors(corsOptions))
 
@@ -25,8 +30,6 @@ const todos = require('./routes/todos');
 const users = require('./routes/users');
 app.use('/todos', todos);
 app.use('/users', users);
-
-// !!! PRODUCTION ONLY !!! //
 
 var distDir = __dirname + "/dist/test-app/";
 app.use(express.static(distDir));
