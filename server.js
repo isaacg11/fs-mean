@@ -19,10 +19,9 @@ app.use(passport.initialize());
 //     optionsSuccessStatus: 200 
 // }
 
-// !!! DEVELOPMENT ONLY (end) !!! //
+// app.use(cors(corsOptions))
 
-  
-app.use(cors(corsOptions))
+// !!! DEVELOPMENT ONLY (end) !!! //
 
 require('./models/todo');
 require('./models/user');
